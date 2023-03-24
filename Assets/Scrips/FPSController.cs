@@ -37,7 +37,8 @@ public class FPSController : MonoBehaviour
         Vector3 moveDirection = transform.right * horizontal + transform.forward * vertical;
 
         // Move the player
-        characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
+        CollisionFlags collisionFlags = characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
+        _ = collisionFlags;
 
         //PlayerFoot steps
         if (IsMoving())

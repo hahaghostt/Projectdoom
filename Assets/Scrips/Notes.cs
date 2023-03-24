@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Notes : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Notes : MonoBehaviour
     public GameObject noteUI;
     public GameObject HUD;
     public GameObject inv;
+
+    public FPSController fpsController;
 
     public GameObject pickUpText;
 
@@ -50,11 +53,12 @@ public class Notes : MonoBehaviour
     {
         if (Input.GetButtonDown("Interact") && inReach)
         {
-            noteUI?.SetActive(true);
+            noteUI.SetActive(true);
+            Debug.Log("Note UI activated.");
             pickUpSound.Play();
             HUD.SetActive(false);
             inv.SetActive(false);
-            player.GetComponent<CharacterController>().enabled = false; //need change line
+            fpsController.enabled = false;
             Cursor.visible = true; //need change line
             Cursor.lockState = CursorLockMode.None; //need to change line 
         }
@@ -65,7 +69,7 @@ public class Notes : MonoBehaviour
         noteUI.SetActive(false);
         HUD.SetActive(true);
         inv.SetActive(true);
-        player.GetComponent<CharacterController>().enabled = true; //change line of code
+        fpsController.enabled = true; //change line of code
 
     }
 
