@@ -262,7 +262,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Missing screw driver
+  m_Text: LOCKED
 --- !u!222 &78516159
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1808,7 +1808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyObj: {fileID: 609698057}
-  invObj: {fileID: 1974996874}
+  invObj: {fileID: 1538730002}
   pickUpText: {fileID: 875771937}
   keySound: {fileID: 162748875}
   inReach: 0
@@ -5036,7 +5036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door: {fileID: 1899347466}
   lockOB: {fileID: 1473922040}
-  keyOB: {fileID: 1974996874}
+  keyOB: {fileID: 1538730002}
   openText: {fileID: 455493268}
   closeText: {fileID: 1361677014}
   lockedText: {fileID: 78516156}
