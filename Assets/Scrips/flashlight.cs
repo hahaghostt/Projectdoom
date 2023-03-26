@@ -5,15 +5,17 @@ using UnityEngine;
 public class flashlight : MonoBehaviour
 {
     public GameObject flashLight;
+
     public AudioSource turnOn;
     public AudioSource turnOff;
+
     public bool on;
     public bool off;
 
     void Start()
     {
-        on = true;
-        flashLight.SetActive(true);
+        off = true;
+        flashLight.SetActive(false);
     }
 
     void Update()
