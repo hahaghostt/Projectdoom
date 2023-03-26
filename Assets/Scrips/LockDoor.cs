@@ -2,88 +2,121 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LockDoors : MonoBehaviour
+public class LockDoor : MonoBehaviour
 {
-    public Animator door;
-    public GameObject openText;
-    public GameObject KeyINV;
 
-    public AudioSource doorsound;
+    public Animator door;
+    public GameObject lockOB;
+    public GameObject keyOB;
+    public GameObject openText;
+    public GameObject closeText;
+    public GameObject lockedText;
+
+
+    public AudioSource openSound;
+    public AudioSource closeSound;
     public AudioSource lockedSound;
+    public AudioSource unlockedSound;
 
     public bool inReach;
-    public bool unlocked;
+    public bool doorisOpen;
+    public bool doorisClosed;
     public bool locked;
-    public bool hasKey;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        inReach = false;
-        hasKey = false;
-        unlocked = false;
-        locked = true;
-
-    }
+    public bool unlocked;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Reach")
+        if (other.gameObject.tag == "Reach" && doorisClosed)
         {
             inReach = true;
             openText.SetActive(true);
+        }
+
+        if (other.gameObject.tag == "Reach" && doorisOpen)
+        {
+            inReach = true;
+            closeText.SetActive(true);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.tag == "Reach")
+        {
+            inReach = false;
+            openText.SetActive(false);
+            lockedText.SetActive(false);
+            closeText.SetActive(false);
+        }
+    }
+
+    void Start()
+    {
         inReach = false;
+        doorisClosed = true;
+        doorisOpen = false;
+        closeText.SetActive(false);
         openText.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (KeyINV.activeInHierarchy)
+        if (lockOB.activeInHierarchy)
         {
-            locked = false;
-            hasKey = true;
+            locked = true;
+            unlocked = false;
         }
+
         else
-        {
-            hasKey = false;
-        }
-        if (hasKey && inReach && Input.GetButtonDown("Interacr"))
         {
             unlocked = true;
-            DoorOpens();
+            locked = false;
         }
-        else
+
+        if (inReach && keyOB.activeInHierarchy && Input.GetButtonDown("Interact"))
         {
-            DoorClosed();
+            unlockedSound.Play();
+            locked = false;
+            keyOB.SetActive(false);
+            StartCoroutine(unlockDoor());
         }
-        if (locked && inReach && Input.GetButtonDown("Interact"))
-        {
-            lockedSound.Play();
-        }
-    }
-    void DoorOpens()
-    {
-        if (unlocked)
+
+        if (inReach && doorisClosed && unlocked && Input.GetButtonDown("Interact"))
         {
             door.SetBool("open", true);
-            doorsound.Play();
+            door.SetBool("closed", false);
+            openText.SetActive(false);
+            openSound.Play();
+            doorisOpen = true;
+            doorisClosed = false;
         }
-    }
 
-    void DoorClosed()
-    {
-        if (unlocked)
+        else if (inReach && doorisOpen && unlocked && Input.GetButtonDown("Interact"))
         {
             door.SetBool("open", false);
+            door.SetBool("closed", true);
+            closeText.SetActive(false);
+            closeSound.Play();
+            doorisClosed = true;
+            doorisOpen = false;
+        }
+
+        if (inReach && locked && Input.GetButtonDown("Interact"))
+        {
+            openText.SetActive(false);
+            lockedText.SetActive(true);
+            lockedSound.Play();
         }
 
     }
 
+    IEnumerator unlockDoor()
+    {
+        yield return new WaitForSeconds(.05f);
+        {
+            unlocked = true;
+            lockOB.SetActive(false);
+        }
+    }
 }
+

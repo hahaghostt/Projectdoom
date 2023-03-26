@@ -55,7 +55,6 @@ public class Door : MonoBehaviour
     
     void DoorClose ()
     {
-        Debug.Log("It Closes");
         door.SetBool("open", false);
     }
     

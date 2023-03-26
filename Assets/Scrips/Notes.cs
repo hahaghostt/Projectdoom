@@ -10,7 +10,7 @@ public class Notes : MonoBehaviour
     public GameObject HUD;
     public GameObject inv;
 
-    public FPSController fpsController;
+    public CharacterController FPScontroller;
 
     public GameObject pickUpText;
 
@@ -58,7 +58,7 @@ public class Notes : MonoBehaviour
             pickUpSound.Play();
             HUD.SetActive(false);
             inv.SetActive(false);
-            fpsController.enabled = false;
+            FPScontroller.enabled = false;
             Cursor.visible = true; //need change line
             Cursor.lockState = CursorLockMode.None; //need to change line 
         }
@@ -69,7 +69,7 @@ public class Notes : MonoBehaviour
         noteUI.SetActive(false);
         HUD.SetActive(true);
         inv.SetActive(true);
-        fpsController.enabled = true; //change line of code
+        FPScontroller.enabled = true; //change line of code
 
     }
 

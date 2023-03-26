@@ -36,9 +36,11 @@ public class FPSController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         Vector3 moveDirection = transform.right * horizontal + transform.forward * vertical;
 
-        // Move the player
-        CollisionFlags collisionFlags = characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
-        _ = collisionFlags;
+        // Move the player if the CharacterController is enabled
+        if (characterController.enabled)
+        {
+            characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
+        }
 
         //PlayerFoot steps
         if (IsMoving())
@@ -61,7 +63,11 @@ public class FPSController : MonoBehaviour
 
         // Apply velocity to the player
         velocity.y += Physics.gravity.y * Time.deltaTime;
-        characterController.Move(velocity * Time.deltaTime);
+        // Move the player if the CharacterController is enabled
+        if (characterController.enabled)
+        {
+            characterController.Move(velocity * Time.deltaTime);
+        }
     }
 
     public bool IsMoving()
