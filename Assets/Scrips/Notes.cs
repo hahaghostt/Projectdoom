@@ -56,8 +56,8 @@ public class Notes : MonoBehaviour
             noteUI.SetActive(true);
             Debug.Log("Note UI activated.");
             pickUpSound.Play();
-            HUD.SetActive(false);
-            inv.SetActive(false);
+            HUD.SetActive(true);
+            inv.SetActive(true);
             FPScontroller.enabled = false;
             Cursor.visible = true; //need change line
             Cursor.lockState = CursorLockMode.None; //need to change line 
