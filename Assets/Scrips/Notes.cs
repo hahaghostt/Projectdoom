@@ -18,7 +18,7 @@ public class Notes : MonoBehaviour
 
     public bool inReach;
 
-
+    public AudioClip notePickupSound; // new variable for the note pickup sound effect
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +55,7 @@ public class Notes : MonoBehaviour
         {
             noteUI.SetActive(true);
             Debug.Log("Note UI activated.");
+            AudioSource.PlayClipAtPoint(notePickupSound, transform.position); // play the pickup sound effect
             pickUpSound.Play();
             HUD.SetActive(true);
             inv.SetActive(true);
