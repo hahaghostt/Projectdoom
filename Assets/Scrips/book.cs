@@ -38,7 +38,6 @@ public class book : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (inReach && Input.GetButtonDown("Interact") && !pickedUp)
@@ -47,6 +46,7 @@ public class book : MonoBehaviour
             invObj.SetActive(true);
             pickUpText.SetActive(false);
             pickedUp = true; // set pickedUp flag to true when book is picked up
+            Debug.Log("Book picked up: " + pickedUp);
         }
     }
 }

@@ -17,7 +17,7 @@ public class BookPuzzle : MonoBehaviour
     bool hasRedBook = false;
     bool hasBlueBook = false;
     bool hasGreenBook = false;
-    bool inReach = false;
+    public bool inReach = false;
     int booksPlaced = 0;
 
     List<GameObject> placedBooks = new List<GameObject>();
@@ -33,9 +33,9 @@ public class BookPuzzle : MonoBehaviour
     {
         if (inReach && Input.GetButtonDown("Interact"))
         {
-            if (redBook.activeSelf)
+            if (redBook != null && redBook.activeSelf)
             {
-                if (redBook.GetComponent<book>().pickedUp) // check if red book has been picked up
+                if (redBook.GetComponent<book>() != null && redBook.GetComponent<book>().pickedUp) // check if red book has been picked up
                 {
                     hasRedBook = true;
                     placedBooks.Add(redBook);
@@ -44,9 +44,9 @@ public class BookPuzzle : MonoBehaviour
                     Debug.Log("Red book has been placed");
                 }
             }
-            else if (blueBook.activeSelf)
+            else if (blueBook != null && blueBook.activeSelf)
             {
-                if (blueBook.GetComponent<book>().pickedUp) // check if blue book has been picked up
+                if (blueBook.GetComponent<book>() != null && blueBook.GetComponent<book>().pickedUp) // check if blue book has been picked up
                 {
                     hasBlueBook = true;
                     placedBooks.Add(blueBook);
@@ -55,9 +55,9 @@ public class BookPuzzle : MonoBehaviour
                     Debug.Log("Blue book has been placed");
                 }
             }
-            else if (greenBook.activeSelf)
+            else if (greenBook != null && greenBook.activeSelf)
             {
-                if (greenBook.GetComponent<book>().pickedUp) // check if green book has been picked up
+                if (greenBook.GetComponent<book>() != null && greenBook.GetComponent<book>().pickedUp) // check if green book has been picked up
                 {
                     hasGreenBook = true;
                     placedBooks.Add(greenBook);
@@ -65,6 +65,10 @@ public class BookPuzzle : MonoBehaviour
                     booksPlaced++;
                     Debug.Log("Green book has been placed");
                 }
+            }
+            else
+            {
+                Debug.Log("No book found!");
             }
         }
 
@@ -75,6 +79,7 @@ public class BookPuzzle : MonoBehaviour
         }
     }
 
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Reach")
@@ -83,10 +88,12 @@ public class BookPuzzle : MonoBehaviour
             if (redBook.activeSelf || blueBook.activeSelf || greenBook.activeSelf)
             {
                 pickupText.SetActive(true);
+
             }
             else if (hasRedBook && redSlot.activeSelf)
             {
                 placeHereText.SetActive(true);
+
             }
             else if (hasBlueBook && blueSlot.activeSelf)
             {
@@ -95,6 +102,10 @@ public class BookPuzzle : MonoBehaviour
             else if (hasGreenBook && greenSlot.activeSelf)
             {
                 placeHereText.SetActive(true);
+            }
+            else
+            {
+                Debug.Log("No object found!");
             }
         }
     }
@@ -106,6 +117,7 @@ public class BookPuzzle : MonoBehaviour
             inReach = false;
             pickupText.SetActive(false);
             placeHereText.SetActive(false);
+
         }
     }
 }
