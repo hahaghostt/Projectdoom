@@ -7,7 +7,7 @@ public class Notes : MonoBehaviour
 {
     public GameObject player;
     public GameObject noteUI;
-    public GameObject HUD;
+    public GameObject hud;
     public GameObject inv;
 
     public CharacterController FPScontroller;
@@ -24,7 +24,7 @@ public class Notes : MonoBehaviour
     void Start()
     {
         noteUI.SetActive(false);
-        HUD.SetActive(true);
+        hud.SetActive(true);
         inv.SetActive(true);
         pickUpText.SetActive(false);
     }
@@ -57,7 +57,7 @@ public class Notes : MonoBehaviour
             Debug.Log("Note UI activated.");
             AudioSource.PlayClipAtPoint(notePickupSound, transform.position); // play the pickup sound effect
             pickUpSound.Play();
-            HUD.SetActive(true);
+            hud.SetActive(true);
             inv.SetActive(true);
             FPScontroller.enabled = false;
             Cursor.visible = true; //need change line
@@ -68,7 +68,7 @@ public class Notes : MonoBehaviour
     public void ExitButton()
     {
         noteUI.SetActive(false);
-        HUD.SetActive(true);
+        hud.SetActive(true);
         inv.SetActive(true);
         FPScontroller.enabled = true; //change line of code
 
