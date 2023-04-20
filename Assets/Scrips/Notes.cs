@@ -67,6 +67,7 @@ public class Notes : MonoBehaviour
 
     public void ExitButton()
     {
+        Debug.Log("Functions does run");
         noteUI.SetActive(false);
         hud.SetActive(true);
         inv.SetActive(true);

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BookPuzzle : MonoBehaviour
 {
+
     public GameObject redBook;
     public GameObject blueBook;
     public GameObject greenBook;
@@ -13,6 +14,12 @@ public class BookPuzzle : MonoBehaviour
     public GameObject placeHereText;
     public GameObject key;
     public GameObject pickupText;
+
+    public GameObject redPickup;
+    public GameObject bluePickup;
+    public GameObject greenPickup;
+
+    public string myColour;
 
     bool hasRedBook = false;
     bool hasBlueBook = false;
@@ -31,11 +38,16 @@ public class BookPuzzle : MonoBehaviour
 
     void Update()
     {
+
+        // Debug.Log(redBook == null);
+        //Debug.Log(redBook.activeInHierarchy);
+
         if (inReach && Input.GetButtonDown("Interact"))
         {
-            if (redBook != null && redBook.activeSelf)
+            Debug.Log("interacted");
+            if (redBook.activeInHierarchy && redBook.activeSelf && myColour == "Red")
             {
-                if (redBook.GetComponent<book>() != null && redBook.GetComponent<book>().pickedUp) // check if red book has been picked up
+                if (redPickup.GetComponent<book>() != null && redPickup.GetComponent<book>().pickedUp) // check if red book has been picked up
                 {
                     hasRedBook = true;
                     placedBooks.Add(redBook);
@@ -44,9 +56,9 @@ public class BookPuzzle : MonoBehaviour
                     Debug.Log("Red book has been placed");
                 }
             }
-            else if (blueBook != null && blueBook.activeSelf)
+            else if (blueBook.activeInHierarchy && blueBook.activeSelf && myColour == "Blue" && redSlot.GetComponent<BookPuzzle>().hasRedBook)
             {
-                if (blueBook.GetComponent<book>() != null && blueBook.GetComponent<book>().pickedUp) // check if blue book has been picked up
+                if (bluePickup.GetComponent<book>() != null && bluePickup.GetComponent<book>().pickedUp) // check if blue book has been picked up
                 {
                     hasBlueBook = true;
                     placedBooks.Add(blueBook);
@@ -55,9 +67,9 @@ public class BookPuzzle : MonoBehaviour
                     Debug.Log("Blue book has been placed");
                 }
             }
-            else if (greenBook != null && greenBook.activeSelf)
+            else if (greenBook.activeInHierarchy && greenBook.activeSelf && myColour == "Green" && blueSlot.GetComponent<BookPuzzle>().hasBlueBook)
             {
-                if (greenBook.GetComponent<book>() != null && greenBook.GetComponent<book>().pickedUp) // check if green book has been picked up
+                if (greenPickup.GetComponent<book>() != null && greenPickup.GetComponent<book>().pickedUp) // check if green book has been picked up
                 {
                     hasGreenBook = true;
                     placedBooks.Add(greenBook);
