@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class BookPuzzle : MonoBehaviour
@@ -18,6 +19,9 @@ public class BookPuzzle : MonoBehaviour
     public GameObject redPickup;
     public GameObject bluePickup;
     public GameObject greenPickup;
+
+    public AudioSource placeIn;
+    public AudioSource finish;
 
     public string myColour;
 
@@ -54,6 +58,7 @@ public class BookPuzzle : MonoBehaviour
                     redBook.SetActive(false);
                     booksPlaced++;
                     Debug.Log("Red book has been placed");
+                    placeIn.Play();
                 }
             }
             else if (blueBook.activeInHierarchy && blueBook.activeSelf && myColour == "Blue" && redSlot.GetComponent<BookPuzzle>().hasRedBook)
@@ -65,6 +70,7 @@ public class BookPuzzle : MonoBehaviour
                     blueBook.SetActive(false);
                     booksPlaced++;
                     Debug.Log("Blue book has been placed");
+                    placeIn.Play();
                 }
             }
             else if (greenBook.activeInHierarchy && greenBook.activeSelf && myColour == "Green" && blueSlot.GetComponent<BookPuzzle>().hasBlueBook)
@@ -76,6 +82,7 @@ public class BookPuzzle : MonoBehaviour
                     greenBook.SetActive(false);
                     booksPlaced++;
                     Debug.Log("Green book has been placed");
+                    placeIn.Play();
                 }
             }
             else
