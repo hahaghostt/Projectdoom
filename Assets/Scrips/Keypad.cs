@@ -42,6 +42,7 @@ public class Keypad : MonoBehaviour
         {
             correct.Play();
             textObvj.text = "Right";
+            animate = true; // Set animate to true when the code is correct
         }
         else
         {
@@ -56,8 +57,6 @@ public class Keypad : MonoBehaviour
             textObvj.text = "";
             button.Play();
         }
-
-
     }
 
     public void Exit()
@@ -72,11 +71,11 @@ public class Keypad : MonoBehaviour
     {
         if (textObvj.text == "Right" && animate)
         {
-            ANI.SetBool("animate", true);
+            ANI.SetBool("animate", true); // Set the "animate" parameter of the door's Animator component to true
             Debug.Log("its open");
         }
-        
-        if(keyPadObvj.activeInHierarchy)
+
+        if (keyPadObvj.activeInHierarchy)
         {
             hud.SetActive(false);
             inv.SetActive(false);
@@ -85,17 +84,5 @@ public class Keypad : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
 
         }
-        
-        
-        
     }
-
-
-
-
-    // Update is called once per frame
-   // voidUpdate()
-   // {
-        
-   // }
 }
