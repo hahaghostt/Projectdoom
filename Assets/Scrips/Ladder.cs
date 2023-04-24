@@ -7,12 +7,12 @@ public class Ladder : MonoBehaviour
     public Transform playerController;
     bool inside = false;
     public float speed = 12f;
-    public CharacterController player;
+    public CharacterController FPScontroller;
     [SerializeField] private AudioSource sound;
 
     void Start()
     {
-        player = GetComponent<CharacterController>();
+        FPScontroller = GetComponent<CharacterController>();
         inside = false;
     }
 
@@ -21,7 +21,7 @@ public class Ladder : MonoBehaviour
         if (col.gameObject.tag == "Ladder")
         {
             Debug.Log("TouchingLadderTrue");
-            player.enabled = false;
+            FPScontroller.enabled = false;
             inside = !inside;
         }
     }
@@ -31,7 +31,7 @@ public class Ladder : MonoBehaviour
         if (col.gameObject.tag == "Ladder")
         {
             Debug.Log("TouchingLadderFalse");
-            player.enabled = true;
+            FPScontroller.enabled = true;
             inside = !inside;
         }
     }

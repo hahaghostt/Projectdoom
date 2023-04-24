@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class dialougetut : MonoBehaviour
+public class Dialogue : MonoBehaviour
 {
     public Text textComponent;
     public string[] lines;
+    public AudioClip[] audioClips;
     public float textSpeed;
 
-    int index;
-
+    private int index;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         textComponent.text = string.Empty;
-        //StartDialouge();
+        audioSource = GetComponent<AudioSource>();
+        StartDialogue();
     }
 
     // Update is called once per frame
@@ -36,10 +38,11 @@ public class dialougetut : MonoBehaviour
         }
     }
 
-    void StartDialouge()
+    void StartDialogue()
     {
         index = 0;
         StartCoroutine(TypeLine());
+        PlayAudio();
     }
 
     IEnumerator TypeLine()
@@ -58,12 +61,20 @@ public class dialougetut : MonoBehaviour
             index++;
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
+            PlayAudio();
         }
         else
         {
             gameObject.SetActive(false);
         }
     }
+
+    void PlayAudio()
+    {
+        if (audioClips.Length > index && audioClips[index])
+        {
+            audioSource.clip = audioClips[index];
+            audioSource.Play();
+        }
+    }
 }
-
-
