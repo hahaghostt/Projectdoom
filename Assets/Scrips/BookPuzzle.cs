@@ -29,7 +29,7 @@ public class BookPuzzle : MonoBehaviour
     bool hasBlueBook = false;
     bool hasGreenBook = false;
     public bool inReach = false;
-    int booksPlaced = 0;
+    static int booksPlaced = 0;
 
     List<GameObject> placedBooks = new List<GameObject>();
 
@@ -91,7 +91,7 @@ public class BookPuzzle : MonoBehaviour
             }
         }
 
-        if (booksPlaced == 3 && placedBooks[0] == redBook && placedBooks[1] == blueBook && placedBooks[2] == greenBook)
+        if (booksPlaced == 3)
         {
             placeHereText.SetActive(false);
             key.SetActive(true);
