@@ -10,8 +10,8 @@ public class Dialogue : MonoBehaviour
     public AudioClip[] audioClips;
     public float textSpeed;
 
-    private int index;
-    private AudioSource audioSource;
+    int index;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()

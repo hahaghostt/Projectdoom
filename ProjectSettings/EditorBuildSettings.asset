@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Lvl 3.unity
     guid: 696b82e4d943c4342bc030ef33c55cd0
   - enabled: 1
+    path: Assets/Scenes/Good.unity
+    guid: 8d4f428d0f0cfb64982bb8ef1e6aef06
+  - enabled: 1
+    path: Assets/Scenes/Evil.unity
+    guid: e9eb0619648692c4e86858e9688e185a
+  - enabled: 1
     path: Assets/Scenes/Credit.unity
     guid: 6c1dfeee9feb53942930aa92c96a55dd
   m_configObjects: {}
