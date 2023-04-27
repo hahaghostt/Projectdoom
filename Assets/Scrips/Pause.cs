@@ -28,6 +28,8 @@ public class Pause : MonoBehaviour
             menu.SetActive(true);
             off = false;
             on = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         else if (on && Input.GetButtonDown("pause"))
         {
@@ -35,7 +37,8 @@ public class Pause : MonoBehaviour
             menu.SetActive(false);
             off = true;
             on = false;
-        }  
+            Cursor.visible = false; 
+        }
     }
     public void Resume()
     {
@@ -43,13 +46,12 @@ public class Pause : MonoBehaviour
         menu.SetActive(false);
         off = true;
         on = false;
+        Cursor.lockState= CursorLockMode.Locked;
+        Cursor.visible = false; 
     }
 
     public void Exit()
     {
         Application.Quit();
     }
-
-
-
 }

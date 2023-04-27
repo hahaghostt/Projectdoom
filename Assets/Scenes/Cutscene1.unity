@@ -339,7 +339,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Skip to next day
 --- !u!222 &1338472864
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 1648093270}
   - component: {fileID: 1648093269}
   m_Layer: 5
-  m_Name: r
+  m_Name: Skip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -542,7 +542,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 679, y: 0}
+  m_AnchoredPosition: {x: 679, y: 197}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1648093269
@@ -666,15 +666,15 @@ RectTransform:
   m_GameObject: {fileID: 1779194808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4620135, y: 0.4620135, z: 0.4620135}
+  m_LocalScale: {x: 0.8473328, y: 0.8473328, z: 0.8473328}
   m_Children: []
   m_Father: {fileID: 404629385}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -893, y: 522}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 673.11, y: -312}
+  m_SizeDelta: {x: 677.17, y: 169.3225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1779194810
 MonoBehaviour:
@@ -706,10 +706,10 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: click anywhere
+  m_Text: click anywhere for the next line
 --- !u!222 &1779194811
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -837,13 +837,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1985005849}
   lines:
-  - Hello welcome to dru-
-  - Kid i im not here to listen to you talk about your special offers
-  - 
+  - 'Y/N: Hello welcome to dru-'
+  - 'FBI: Kid i im not here to listen to you talk about your special offers'
+  - 'FBI: Listen, I need your help with this company and I can''t rely on your colleagues,
+    Because there uhh coo coo if you get what I mean.'
+  - 'Y/N: HUH, Slow your roll there i don''t even know who you are or what you even
+    do there sir for all i know your a murder'
+  - 'Y/N: i have a question before i take your offer why am i doing this and what
+    is this for '
+  - 'FBI: I can''t tell you my current position right now but let''s just say if
+    you do the job right mate, rewards will come your way.'
+  - 'FBI: And uhh if you don''t do it right I can make arrangements for that to happen
+    sooo either way you''re helping'
+  - Y/N Wow you're such a gentleman I wonder how many dates you went on..
+  - 'Y/N Okay fine since you gave me a choice i''ll do it, What do i have to do. '
+  - 'FBI: Ada boy using that brain of yours. '
+  - 'FBI: You''re going to stay behind and MAKE sure it is empty no one can find
+    you to do this or we''re all doomed.'
   audioClips:
   - {fileID: 8300000, guid: d935ad764d7352744be9195c82577c71, type: 3}
   - {fileID: 8300000, guid: 4b401b315458f2c4f8b36af30dfab1be, type: 3}
-  - {fileID: 8300000, guid: 4b401b315458f2c4f8b36af30dfab1be, type: 3}
+  - {fileID: 8300000, guid: dc3c2b476c0b18a49adc2af61348817e, type: 3}
+  - {fileID: 8300000, guid: 942a3458eb084a6488d613f3fc4f5b0b, type: 3}
+  - {fileID: 8300000, guid: 230dbdb9f43653c439eaf2aa68410cc8, type: 3}
+  - {fileID: 8300000, guid: 4f3e2fa575c4ce146adac910f7045904, type: 3}
+  - {fileID: 8300000, guid: 9c8a088266214da4fa55754901d3091f, type: 3}
+  - {fileID: 8300000, guid: d77973acb17ef844fa5036bb8d4f54c4, type: 3}
+  - {fileID: 8300000, guid: 28565cc0ce2793f4d8ba1c112c8e7248, type: 3}
+  - {fileID: 8300000, guid: 06abd30bd265bb54bbaec1764b4f833c, type: 3}
+  - {fileID: 8300000, guid: 0c3d06444a990224a80a79c096699d6d, type: 3}
   textSpeed: 0
 --- !u!114 &1985005849
 MonoBehaviour:
