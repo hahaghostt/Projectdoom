@@ -12,7 +12,6 @@ public class NPC : MonoBehaviour
     public Text dialogueText;
     public List<string> dialogue;
     public GameObject dialoguePanel;
-    public GameObject talkText;
     public Button option1Button;
     public Button option2Button;
     public string option1Scene;
@@ -24,10 +23,8 @@ public class NPC : MonoBehaviour
     {
         prompt.SetActive(false);
         dialoguePanel.SetActive(false);
-        talkText.SetActive(false);
         option1Button.onClick.AddListener(OnOption1Clicked);
         option2Button.onClick.AddListener(OnOption2Clicked);
-        dialogueText.gameObject.SetActive(false); // Disable dialogue text on Start
     }
 
     // Update is called once per frame
@@ -48,40 +45,13 @@ public class NPC : MonoBehaviour
     {
         // disable FPSController
         FPScontroller.enabled = false;
-        talkText.SetActive(false);
 
         for (int i = 0; i < dialogue.Count; i++)
         {
-            dialogueText.gameObject.SetActive(true); // Enable dialogue text before displaying each line
             dialogueText.text = dialogue[i];
-            bool wait = true;
-            while (wait)
-            {
-                if (Input.GetButtonDown("Interact"))
-                {
-                    wait = false;
-                    Debug.Log("Pressed E");
-                }
-                yield return null;
-            }
-            dialogueText.gameObject.SetActive(false); // Disable dialogue text after displaying each line
+            yield return new WaitForSeconds(1f);
+            Debug.Log("stared dialogue");
         }
-
-        // Display the buttons after the last line of dialogue
-        option1Button.gameObject.SetActive(true);
-        option2Button.gameObject.SetActive(true);
-
-        // Wait for the player to choose an option
-        bool optionChosen = false;
-        while (!optionChosen)
-        {
-            yield return null;
-        }
-
-        // Disable the buttons after the player has chosen an option
-        option1Button.gameObject.SetActive(false);
-        option2Button.gameObject.SetActive(false);
-
         dialoguePanel.SetActive(false);
         inDialogue = false;
         Cursor.visible = false;
@@ -98,7 +68,6 @@ public class NPC : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             prompt.SetActive(true);
-            talkText.SetActive(true);
             playerDetection = true;
             Debug.Log("Player entered NPC trigger");
         }
@@ -109,7 +78,6 @@ public class NPC : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             prompt.SetActive(false);
-            talkText.SetActive(false);
             playerDetection = false;
             inDialogue = false;
             Cursor.visible = false;
@@ -124,16 +92,13 @@ public class NPC : MonoBehaviour
     void OnOption1Clicked()
     {
         SceneManager.LoadScene(option1Scene);
-        Debug.Log("Good");
     }
-
     void OnOption2Clicked()
     {
         SceneManager.LoadScene(option2Scene);
-        Debug.Log("Evil");
     }
-
 }
+
 
 
 
