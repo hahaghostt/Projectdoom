@@ -11,12 +11,14 @@ public class NPC : MonoBehaviour
     public GameObject prompt;
     public Text dialogueText;
     public List<string> dialogue;
+    public List<AudioClip> audioClips; 
     public GameObject dialoguePanel;
     public Button option1Button;
     public Button option2Button;
     public string option1Scene;
     public string option2Scene;
     bool inDialogue = false;
+    bool dialogueCompleted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,38 +32,52 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerDetection && Input.GetButtonDown("Interact") && !inDialogue)
+        if (playerDetection && Input.GetButtonDown("Interact") && !inDialogue && !dialogueCompleted)
         {
             prompt.SetActive(false);
             dialoguePanel.SetActive(true);
+            dialogueText.enabled = true;
             inDialogue = true;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             StartCoroutine(StartDialogue());
         }
+        if (dialogueCompleted)
+        {
+            prompt.SetActive(false);
+            dialoguePanel.SetActive(false);
+            dialogueText.enabled = false;
+        }
     }
 
     IEnumerator StartDialogue()
     {
-        // disable FPSController
         FPScontroller.enabled = false;
 
         for (int i = 0; i < dialogue.Count; i++)
         {
             dialogueText.text = dialogue[i];
-            yield return new WaitForSeconds(1f);
-            Debug.Log("stared dialogue");
+            GetComponent<AudioSource>().PlayOneShot(audioClips[i]); 
+            yield return new WaitForSeconds(audioClips[i].length); 
+            if (i == dialogue.Count - 1)
+            {
+                option1Button.gameObject.SetActive(true);
+                option2Button.gameObject.SetActive(true);
+                yield return new WaitUntil(() => option1Button.gameObject.activeSelf == false && option2Button.gameObject.activeSelf == false);
+                break;
+            }
+            yield return new WaitUntil(() => Input.GetButtonDown("Interact"));
         }
+
         dialoguePanel.SetActive(false);
         inDialogue = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        // enable FPSController
         FPScontroller.enabled = true;
         Debug.Log("Dialogue ended");
+        dialogueCompleted = true;
     }
-
 
     void OnTriggerEnter(Collider other)
     {
@@ -78,12 +94,17 @@ public class NPC : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             prompt.SetActive(false);
+
+            if (!dialogueCompleted)
+            {
+                dialoguePanel.SetActive(false);
+                dialogueText.enabled = false;
+            }
+
             playerDetection = false;
             inDialogue = false;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-
-            // enable FPSController
             FPScontroller.enabled = true;
             Debug.Log("Player exited NPC trigger");
         }
@@ -93,18 +114,12 @@ public class NPC : MonoBehaviour
     {
         SceneManager.LoadScene(option1Scene);
     }
+
     void OnOption2Clicked()
     {
         SceneManager.LoadScene(option2Scene);
     }
 }
-
-
-
-
-
-
-
 
 
 

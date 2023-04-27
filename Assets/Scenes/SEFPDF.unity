@@ -1464,6 +1464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6.51
   leftRightRange: 27.8
+  rotationSpeed: 1
 --- !u!1 &409423066
 GameObject:
   m_ObjectHideFlags: 0
@@ -6565,12 +6566,25 @@ MonoBehaviour:
   prompt: {fileID: 1161676092}
   dialogueText: {fileID: 2004769877}
   dialogue:
-  - wafawfsf
+  - Press E to go to the next line
   - sfeewfew
   - wefgsdg
   - adfada
   - asdd
-  - xczcfca
+  - dfsafvsdz vs
+  - ws vbrehg
+  - efsaefa
+  - gwergwegwe
+  audioClips:
+  - {fileID: 8300000, guid: adf8edeaaff68d84c9e79a8019731109, type: 3}
+  - {fileID: 8300000, guid: adf8edeaaff68d84c9e79a8019731109, type: 3}
+  - {fileID: 8300000, guid: adf8edeaaff68d84c9e79a8019731109, type: 3}
+  - {fileID: 8300000, guid: adf8edeaaff68d84c9e79a8019731109, type: 3}
+  - {fileID: 8300000, guid: adf8edeaaff68d84c9e79a8019731109, type: 3}
+  - {fileID: 8300000, guid: adf8edeaaff68d84c9e79a8019731109, type: 3}
+  - {fileID: 8300000, guid: adf8edeaaff68d84c9e79a8019731109, type: 3}
+  - {fileID: 8300000, guid: adf8edeaaff68d84c9e79a8019731109, type: 3}
+  - {fileID: 8300000, guid: adf8edeaaff68d84c9e79a8019731109, type: 3}
   dialoguePanel: {fileID: 1783044399}
   option1Button: {fileID: 936212023}
   option2Button: {fileID: 2123274989}
@@ -8087,7 +8101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2004769876
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8140,7 +8154,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: asdsad
+  m_Text: '
+
+'
 --- !u!222 &2004769878
 CanvasRenderer:
   m_ObjectHideFlags: 0
