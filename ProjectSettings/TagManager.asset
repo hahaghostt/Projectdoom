@@ -17,6 +17,7 @@ TagManager:
   - GreenSlot
   - Light
   - Box
+  - PromptTrigger
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - 'computer lights '
   - test2
   - lvl2
-  - 
+  - wallLayer
   - 
   - 
   - 

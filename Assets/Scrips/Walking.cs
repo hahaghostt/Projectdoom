@@ -17,10 +17,10 @@ public class Walking : MonoBehaviour
 
     Quaternion targetRotation;
 
-    // Start is called before the first frame update
     void Start()
     {
         startingPosition = transform.position;
+        CreatePrompt();
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class Walking : MonoBehaviour
             {
                 goingRight = false;
                 targetRotation = Quaternion.Euler(0f, 180f, 0f);
-                CreatePrompt();
+                isTurning = true;
             }
         }
         else
@@ -43,26 +43,23 @@ public class Walking : MonoBehaviour
             {
                 goingRight = true;
                 targetRotation = Quaternion.Euler(0f, 0f, 0f);
-                CreatePrompt();
+                isTurning = true;
             }
         }
 
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
         if (isTurning)
-        {
-            if (prompt.activeSelf)
-            {
-                prompt.SetActive(false);
-            }
-        }
-        else
         {
             if (!prompt.activeSelf)
             {
                 prompt.SetActive(true);
             }
         }
-
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        else
+        {
+            prompt.SetActive(false);
+        }
     }
 
     void CreatePrompt()
@@ -71,6 +68,20 @@ public class Walking : MonoBehaviour
         {
             Destroy(prompt);
         }
-        prompt = Instantiate(promptPrefab, transform.position + Vector3.up * 2f, Quaternion.identity);
+        prompt = Instantiate(promptPrefab, transform);
+        prompt.transform.localPosition = Vector3.up * 2f;
+        prompt.transform.localRotation = Quaternion.identity;
+        prompt.SetActive(false);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PromptTrigger"))
+        {
+            isTurning = false;
+            prompt.SetActive(false);
+            CreatePrompt();
+            isTurning = true;
+        }
     }
 }

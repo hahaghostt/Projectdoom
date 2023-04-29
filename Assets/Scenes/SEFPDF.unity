@@ -933,6 +933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 197031357}
   - component: {fileID: 197031356}
+  - component: {fileID: 197031358}
   m_Layer: 0
   m_Name: Light
   m_TagString: Light
@@ -1016,6 +1017,19 @@ Transform:
   m_Father: {fileID: 368515251}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 2.437, y: 90, z: 90}
+--- !u!114 &197031358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197031355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e21628ca08b0a4ea4e596617138999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneBuildNumber: 6
 --- !u!1 &243370806
 GameObject:
   m_ObjectHideFlags: 0
