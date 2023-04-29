@@ -8,8 +8,12 @@ public class Walking : MonoBehaviour
     public float leftRightRange = 2f;
     public float rotationSpeed = 1f;
 
+    public GameObject promptPrefab;
+
     Vector3 startingPosition;
     bool goingRight = true;
+    bool isTurning = false;
+    GameObject prompt;
 
     Quaternion targetRotation;
 
@@ -29,6 +33,7 @@ public class Walking : MonoBehaviour
             {
                 goingRight = false;
                 targetRotation = Quaternion.Euler(0f, 180f, 0f);
+                CreatePrompt();
             }
         }
         else
@@ -38,8 +43,34 @@ public class Walking : MonoBehaviour
             {
                 goingRight = true;
                 targetRotation = Quaternion.Euler(0f, 0f, 0f);
+                CreatePrompt();
             }
         }
+
+        if (isTurning)
+        {
+            if (prompt.activeSelf)
+            {
+                prompt.SetActive(false);
+            }
+        }
+        else
+        {
+            if (!prompt.activeSelf)
+            {
+                prompt.SetActive(true);
+            }
+        }
+
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    void CreatePrompt()
+    {
+        if (prompt != null)
+        {
+            Destroy(prompt);
+        }
+        prompt = Instantiate(promptPrefab, transform.position + Vector3.up * 2f, Quaternion.identity);
     }
 }

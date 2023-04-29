@@ -17,6 +17,7 @@ public class Pause : MonoBehaviour
         menu.SetActive(false);
         off = true;
         on = false;
+
     }
 
     // Update is called once per frame

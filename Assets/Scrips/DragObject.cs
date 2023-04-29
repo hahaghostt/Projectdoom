@@ -1,19 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 
 public class DragObject : MonoBehaviour
-
 {
-    private Vector3 mOffset;
-    private float mZCoord;
+    Vector3 mOffset;
+    float mZCoord;
+    public GameObject dragText;
+
+    void Start()
+    {
+        dragText.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        // Check if the collider is tagged with "Draggable"
+        if (other.CompareTag("Box"))
+        {
+            dragText.SetActive(true);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        // Check if the collider is tagged with "Draggable"
+        if (other.CompareTag("Box"))
+        {
+            dragText.SetActive(false);
+        }
+    }
 
     void OnMouseDown()
     {
         mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
         mOffset = gameObject.transform.position - GetMouseWorldPos();
     }
-    private Vector3 GetMouseWorldPos()
+
+    Vector3 GetMouseWorldPos()
     {
         Vector3 mousePoint = Input.mousePosition;
         mousePoint.z = mZCoord;
@@ -23,5 +51,23 @@ public class DragObject : MonoBehaviour
     void OnMouseDrag()
     {
         transform.position = GetMouseWorldPos() + mOffset;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.isKinematic = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.isKinematic = false;
+        }
     }
 }
