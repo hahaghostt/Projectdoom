@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement; 
 
 public class Pause : MonoBehaviour
 {
     public GameObject menu;
     public GameObject resume;
+    public GameObject LoadMenuu; 
     public GameObject quit;
 
     public bool on;
@@ -41,7 +44,7 @@ public class Pause : MonoBehaviour
             Cursor.visible = false; 
         }
     }
-    public void Resume()
+    public void ResumeGame()
     {
         Time.timeScale = 1;
         menu.SetActive(false);
@@ -51,8 +54,15 @@ public class Pause : MonoBehaviour
         Cursor.visible = false; 
     }
 
-    public void Exit()
+    public void LoadMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu"); 
+    }
+
+    public void QuitGame()
     {
         Application.Quit();
+        Debug.Log("quit"); 
     }
 }

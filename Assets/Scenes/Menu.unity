@@ -1941,7 +1941,7 @@ Light:
   m_Color: {r: 0.735849, g: 0.663355, b: 0.5865966, a: 1}
   m_Intensity: 2.96
   m_Range: 40.4
-  m_SpotAngle: 55.02305
+  m_SpotAngle: 71.4
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
