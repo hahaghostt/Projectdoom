@@ -7,6 +7,7 @@ public class book : MonoBehaviour
     public GameObject bookObj;
     public GameObject invObj;
     public GameObject pickUpText;
+    public AudioSource keySound;
 
     public bool inReach;
     public bool pickedUp;
@@ -44,6 +45,7 @@ public class book : MonoBehaviour
         {
             bookObj.SetActive(false);
             invObj.SetActive(true);
+            keySound.Play();
             pickUpText.SetActive(false);
             pickedUp = true; // set pickedUp flag to true when book is picked up
             Debug.Log("Book picked up: " + pickedUp);

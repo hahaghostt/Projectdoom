@@ -22,6 +22,7 @@ public class BookPuzzle : MonoBehaviour
 
     public AudioSource placeIn;
     public AudioSource finish;
+    public AudioSource wrong;
 
     public string myColour;
 
@@ -88,6 +89,7 @@ public class BookPuzzle : MonoBehaviour
             else
             {
                 Debug.Log("No book found!");
+                wrong.Play();
             }
         }
 

@@ -18,7 +18,7 @@ public class pickup : MonoBehaviour
         pickUpText.SetActive(false);
         invObj.SetActive(false);
     }
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Reach")
         {
