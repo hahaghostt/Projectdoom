@@ -1152,11 +1152,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 99beb9137da087d49b58b34c260f6b76, type: 3}
   - {fileID: 8300000, guid: 5daad310d9521a244a45a43fbfd0b317, type: 3}
   - {fileID: 8300000, guid: f42b24d52c475ca49a28aef0d19c8f40, type: 3}
-  - {fileID: 8300000, guid: 2123211c35bab15419ef44beb73f2be2, type: 3}
+  - {fileID: 8300000, guid: 12936bcbaeda2ea45a9573ef12200ae7, type: 3}
   - {fileID: 8300000, guid: 9fd757ed8571af448a663767cf424c56, type: 3}
   - {fileID: 8300000, guid: 2123211c35bab15419ef44beb73f2be2, type: 3}
-  - {fileID: 8300000, guid: b88c7d6a57ef7294dbb7698765c65408, type: 3}
-  - {fileID: 8300000, guid: f6d5b58cefbf1f441a8be29ee82ff997, type: 3}
+  - {fileID: 8300000, guid: 37f07c52388116f469ae4311f04eed95, type: 3}
+  - {fileID: 8300000, guid: 1707483191d096d49aeec0a5aa371e92, type: 3}
   - {fileID: 8300000, guid: d3da4da100ce8ac47b3f6bf4eb81dec1, type: 3}
   - {fileID: 8300000, guid: b093f8391e3e7904db9413450f5a7056, type: 3}
   textSpeed: 0
