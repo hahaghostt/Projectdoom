@@ -28,6 +28,8 @@ public class Keypad : MonoBehaviour
     void Start()
     {
         keyPadObvj.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void Number(int number)
