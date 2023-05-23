@@ -9,9 +9,12 @@ public class Keypad : MonoBehaviour
     public GameObject keyPadObvj;
     public GameObject hud;
     public GameObject inv;
+    public GameObject keyPadUI;
+
 
     public GameObject animateObvj;
     public Animator ANI;
+
 
     public Text textObvj;
     public string answer = "1234";
@@ -29,6 +32,7 @@ public class Keypad : MonoBehaviour
     {
         keyPadObvj.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
+        keyPadUI.SetActive(false);
         Cursor.visible = true;
     }
 
@@ -67,6 +71,7 @@ public class Keypad : MonoBehaviour
         inv.SetActive(true);
         hud.SetActive(true);
         FPScontroller.enabled = true;
+        keyPadUI.SetActive(false);
     }
 
     public void Update()
@@ -79,9 +84,11 @@ public class Keypad : MonoBehaviour
 
         if (keyPadObvj.activeInHierarchy)
         {
-            hud.SetActive(false);
-            inv.SetActive(false);
-            FPScontroller.enabled = false;
+            Debug.Log("Functions does run");
+            keyPadUI.SetActive(false);
+            hud.SetActive(true);
+            inv.SetActive(true);
+            FPScontroller.enabled = true;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
 
