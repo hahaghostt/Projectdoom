@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.008185421, g: 0.009119519, b: 0.0109963855, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9265,7 +9265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &361621708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50349,7 +50349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1814938819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50422,11 +50422,11 @@ MonoBehaviour:
   noteUI: {fileID: 1814938818}
   hud: {fileID: 444162746}
   inv: {fileID: 1630168109}
-  FPScontroller: {fileID: 0}
-  pickUpText: {fileID: 0}
-  pickUpSound: {fileID: 0}
+  FPScontroller: {fileID: 333281427}
+  pickUpText: {fileID: 633687678}
+  pickUpSound: {fileID: 633687680}
   inReach: 0
-  notePickupSound: {fileID: 0}
+  notePickupSound: {fileID: 8300000, guid: 20494d92982c2de4fae27b22f5b74681, type: 3}
 --- !u!1 &1826316108
 GameObject:
   m_ObjectHideFlags: 0
