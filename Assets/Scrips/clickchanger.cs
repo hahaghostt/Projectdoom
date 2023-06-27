@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 public class clickchanger : MonoBehaviour
 {
     // Start is called before the first frame update
-    public void retry()
+      public void Update ()
     {
-        SceneManager.LoadScene("lvl 1");
+        if(Input.GetKeyDown(KeyCode.B)) 
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
 }

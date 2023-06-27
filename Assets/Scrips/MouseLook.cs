@@ -17,11 +17,30 @@ public class MouseLook : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    float mouseX = 0f;
+    float mouseY = 0f;
+
     // Update is called once per frame
     void Update() 
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime; 
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        if (Input.GetKey(KeyCode.D)) {
+            mouseX -= Time.deltaTime;
+        } else if (Input.GetKey(KeyCode.G)) {
+            mouseX += Time.deltaTime;
+        } else {
+            mouseX = 0f;
+        }
+
+        if (Input.GetKey(KeyCode.R)) {
+            mouseY += Time.deltaTime;
+        } else if (Input.GetKey(KeyCode.F)) {
+            mouseY -= Time.deltaTime;
+        } else {
+            mouseY = 0f;
+        }
+
+        //float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime; 
+        //float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); //WE CANT OVER ROTATE BEHIND THE PLAYER

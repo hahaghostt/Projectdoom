@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class menubuttons : MonoBehaviour
 {
-    public void PlayGame()
+    public void Update ()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if(Input.GetKeyDown(KeyCode.V)) 
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     public void QuitGame()
