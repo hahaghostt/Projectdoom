@@ -51,7 +51,7 @@ public class Notes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Interact") && inReach)
+        if (Input.GetKeyDown(KeyCode.E) && inReach)
         {
             noteUI.SetActive(true);
             Debug.Log("Note UI activated.");
@@ -63,9 +63,18 @@ public class Notes : MonoBehaviour
             Cursor.visible = true; //need change line
             Cursor.lockState = CursorLockMode.None; //need to change line 
         }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Debug.Log("Functions does run");
+            noteUI.SetActive(false);
+            hud.SetActive(true);
+            inv.SetActive(true);
+            FPScontroller.enabled = true; //change line of code
+        }
     }
 
-    public void ExitButton()
+    /* public void ExitButton()
     {
         Debug.Log("Functions does run");
         noteUI.SetActive(false);
@@ -73,6 +82,7 @@ public class Notes : MonoBehaviour
         inv.SetActive(true);
         FPScontroller.enabled = true; //change line of code
 
-    }
+    } */ 
+    
 
 }

@@ -26,22 +26,30 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (off && Input.GetButtonDown("pause"))
+        if (off && Input.GetKeyDown(KeyCode.V))
         {
             Time.timeScale = 0;
-            menu.SetActive(true);
+            menu.SetActive(true); 
             off = false;
             on = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            if (Input.GetKeyDown(KeyCode.H))
+            { 
+                SceneManager.LoadScene("Menu"); 
+            }
         }
-        else if (on && Input.GetButtonDown("pause"))
+
+        else if (on && Input.GetKeyDown(KeyCode.V))
         {
             Time.timeScale = 1;
             menu.SetActive(false);
             off = true;
             on = false;
+            // Cursor.lockState = CursorMode.Locked; 
             Cursor.visible = false; 
+            
         }
     }
     public void ResumeGame()

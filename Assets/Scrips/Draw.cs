@@ -37,7 +37,7 @@ public class Draw : MonoBehaviour
     void Update()
 
     {
-        if (inReach && Input.GetButtonDown("Interact"))
+        if (inReach && Input.GetKeyDown(KeyCode.E))
         {
             DrawOpens();
         }

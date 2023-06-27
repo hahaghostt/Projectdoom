@@ -41,7 +41,7 @@ public class book : MonoBehaviour
 
     void Update()
     {
-        if (inReach && Input.GetButtonDown("Interact") && !pickedUp)
+        if (inReach && Input.GetKeyDown(KeyCode.E) && !pickedUp)
         {
             bookObj.SetActive(false);
             invObj.SetActive(true);

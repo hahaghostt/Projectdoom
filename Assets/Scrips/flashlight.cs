@@ -20,14 +20,14 @@ public class flashlight : MonoBehaviour
 
     void Update()
     {
-        if (off && Input.GetButtonDown("F"))
+        if (off && Input.GetKeyDown(KeyCode.C))
         {
             flashLight.SetActive(true);
             turnOn.Play();
             off = false;
             on = true;
         }
-        else if (on && Input.GetButtonDown("F"))
+        else if (on && Input.GetKeyDown(KeyCode.C))
         {
             flashLight.SetActive(false);
             turnOff.Play();
