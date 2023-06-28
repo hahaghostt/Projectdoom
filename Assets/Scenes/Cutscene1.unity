@@ -1272,7 +1272,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '*press x  anywhere for the next line*'
+  m_Text: '*press E  anywhere for the next line*'
 --- !u!222 &931490986
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2488,7 +2488,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '*press x  anywhere for the next line*'
+  m_Text: '*press E  anywhere for the next line*'
 --- !u!222 &1779194811
 CanvasRenderer:
   m_ObjectHideFlags: 0
