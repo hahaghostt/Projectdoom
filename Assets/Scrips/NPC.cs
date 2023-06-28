@@ -48,6 +48,16 @@ public class NPC : MonoBehaviour
             dialoguePanel.SetActive(false);
             dialogueText.enabled = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.X) && inDialogue) 
+        {
+            SceneManager.LoadScene(option1Scene);
+        }
+
+        if (Input.GetKeyDown(KeyCode.V) && inDialogue) 
+        {
+           SceneManager.LoadScene(option2Scene);
+        }
     }
 
     IEnumerator StartDialogue()

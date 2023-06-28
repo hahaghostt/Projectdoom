@@ -56,7 +56,7 @@ public class FPSController : MonoBehaviour
         }
 
         // Apply jump force
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Z) && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * Physics.gravity.y);
         }
