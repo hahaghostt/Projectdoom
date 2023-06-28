@@ -5,17 +5,40 @@ using UnityEngine.SceneManagement;
 
 public class menubuttons : MonoBehaviour
 {
+
+    // public Image bliCK; 
+    public Animator transition;
+    public float transitionTime = 1f; 
+
     public void Update ()
     {
         if(Input.GetKeyDown(KeyCode.V)) 
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            LoadNextLevel(); 
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1)); 
+        }
+
+        if(Input.GetKeyDown(KeyCode.C)) 
+        {
+            Application.Quit(); 
+            Debug.Log("Quit Game"); 
         }
     }
 
-    public void QuitGame()
+    public void LoadNextLevel() 
     {
-        Application.Quit();
-        Debug.Log("Quit Game"); 
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1)); 
     }
+
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start"); 
+
+        yield return new WaitForSeconds(transitionTime); 
+
+        SceneManager.LoadScene(levelIndex);
+    }
+
+
 }
