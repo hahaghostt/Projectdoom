@@ -17,6 +17,26 @@ public class DragObject : MonoBehaviour
         Cursor.visible = false;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && CompareTag("Box"))
+        {
+
+            transform.position = GetMouseWorldPos() + mOffset;
+            mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+            Vector3 mousePoint = Input.mousePosition;
+            mousePoint.z = mZCoord;
+
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.isKinematic = true;
+
+            mOffset = gameObject.transform.position - GetMouseWorldPos();
+   
+        }
+
+        
+    }
+
     void OnTriggerEnter(Collider other)
     {
         // Check if the collider is tagged with "Draggable"

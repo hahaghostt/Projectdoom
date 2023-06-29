@@ -8049,8 +8049,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced2e933df334364caf6941df70b5abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15.55
-  jumpForce: 2.62
+  moveSpeed: 18.74
+  jumpForce: 3.61
   groundCheck: {fileID: 1814008654}
   groundDistance: 0.4
   groundMask:
@@ -16117,7 +16117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14444c595a43452498768474f74ba8af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 1000
+  mouseSensitivity: 3206.9
   playerBody: {fileID: 333281428}
 --- !u!81 &624787117
 AudioListener:
