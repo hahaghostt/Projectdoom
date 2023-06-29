@@ -17,7 +17,7 @@ public class GameOverScreen : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.V)) 
         {
-            SceneManager.LoadScene("Lvl 1");
+            SceneManager.LoadScene("Lvl 2");
         }
         
         if (Input.GetKeyDown(KeyCode.H)) 
